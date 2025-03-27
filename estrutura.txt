@@ -1,0 +1,27 @@
+//Estrutura do projeto
+project_name/
+├── src/                     
+│   ├── __init__.py
+│   ├── main.py             
+│   ├── utils/
+│   ├── models/
+│   └── data/
+├── templates/               
+│   ├── base.html            
+│   ├── index.html           
+│   └── about.html           
+├── static/                  
+│   ├── css/
+│   │   └── styles.css       
+│   ├── js/
+│   │   └── scripts.js      
+│   └── images/
+│       └── logo.png        
+├── docs/
+├── scripts/
+├── .gitignore
+├── requirements.txt
+├── setup.py
+└── LICENSE
+
+//A atualizar, adcionar mais coisas com o passar do desenvolvimento
