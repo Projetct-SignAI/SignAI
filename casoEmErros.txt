@@ -1,0 +1,2 @@
+//Caso não consiga dar push use o comando abaixo
+git push https://<TOKEN.DaConta>@github.com/UsuarioGit/SignAI.git
