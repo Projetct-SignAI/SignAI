@@ -1,0 +1,58 @@
+/* Estilos para o Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f8f8f8;
+}
+
+/* Ícones do Header */
+.header-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+}
+
+/* Estilos para a Navegação */
+header nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #fff;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+}
+
+header nav ul li a:hover {
+    color: #007BFF;
+}
+
+/* Estilos para o Footer */
+.footer {
+    margin-top: 50px;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    background-color: #f8f8f8;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
