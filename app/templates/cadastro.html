@@ -11,25 +11,26 @@
         <div class="left">
             <h1>SignAI</h1>
             <h2>Cadastrar</h2>
-            <form>
+            <form action="/cadastro/info" method="POST">
+
                 <label for="username">Nome</label>
-                <input type="text" id="username" placeholder="Digite seu nome" required>
+                <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
                 <br>
 
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Digite seu email" required>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
                 <br>
 
                 <label for="password">Senha</label>
-                <input type="password" id="password" placeholder="Crie uma senha" required>
+                <input type="password" id="password" name="password" placeholder="Crie uma senha" required>
                 <br>
 
                 <label for="confirm-password">Confirmar Senha</label>
-                <input type="password" id="confirm-password" placeholder="Confirme sua senha" required>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirme sua senha" required>
 
                 <button type="submit">Cadastrar</button>
             </form>
-            <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+            <p>Já tem uma conta? <a href="/">Faça login</a></p>
         </div>
         <div class="right">
             <img src="placeholder.png" alt="Imagem representativa" width="250px">
@@ -39,8 +40,9 @@
         <p>SignAI</p>
         <p>© 2025 Todos os direitos reservados</p>
     </div>
+    <script src="../static/js/cadastro.js"></script>
+
 </body>
 </html>
-<style>
-    
-</style>
+
+

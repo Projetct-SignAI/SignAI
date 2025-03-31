@@ -13,16 +13,16 @@
             <h1>SignAI</h1>
             <p>"Communication is not a barrier"</p>
             <h2>Login</h2>
-            <p>Não tem uma conta ainda? <a href="cadastro.html">Crie já!</a></p>
-            <form>
+            <p>Não tem uma conta ainda? <a href="/cadastro">Crie já!</a></p>
+            <form action="/login" method="POST">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Digite seu email" required>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
                 <br>
                 
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Digite sua senha" required>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
                 <br>
-
+            
                 <a href="recuperarSenha.html">Esqueceu a senha?</a>
                 
                 <button type="submit">Login</button>
