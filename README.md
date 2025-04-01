@@ -180,3 +180,6 @@ Solução:
 - Este README será atualizado e complementado com mais informações ao longo do desenvolvimento.
 - Certifique-se de ter as permissões adequadas para clonar e realizar push no repositório.
 
+
+
+Mini teste
