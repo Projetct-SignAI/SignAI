@@ -112,6 +112,7 @@ Para rodar a API FastAPI com Uvicorn, use:
 ```sh
 uvicorn src.main:app --reload
 ```
+NÃO ESQUECER DE RODAR EM APP
 
 Acesse no navegador:
 
