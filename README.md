@@ -26,9 +26,10 @@ git push https://<SEU_TOKEN_DA_CONTA>@github.com/UsuarioGit/SignAI.git
 
 ### **Instalar todas as dependências**
 
+**Instala pelo requirements**
 
 ```sh
-pip install fastapi uvicorn sqlalchemy psycopg2 jinja2
+pip install -r requirements.txt
 ```
 
 ---
