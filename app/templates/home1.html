@@ -19,17 +19,17 @@
             <p>A SignAI foi criada para tornar a comunicação mais acessível e inclusiva. Nossa tecnologia utiliza inteligência artificial para reconhecer sinais de Libras e convertê-los em texto e áudio em tempo real.</p>
             <p>Aqui, você pode explorar todas as funcionalidades e facilitar a comunicação de forma prática e intuitiva:</p>
             <ul>
-                <li>Captura de sinais via câmera</li>
+                <li href="captarSinais.html">Captura de sinais via câmera</li>
                 <li>Conversão de sinais para voz</li>
                 <li>Interface acessível e intuitiva</li>
             </ul>
             <p>Gostaria de um rápido tutorial para entender como utilizar o site?</p>
-            <button>➡</button>
+            <button href="/tutorial">➡</button>
         </div>
         <div class="box">
-            <span class="button">Capatar Sinais</span>
-            <span class="button">Converter Voz</span>
-            <span class="button">Historico</span>
+            <a href="/captarSinais" class="button">Captar Sinais</a>
+            <a href="/converterVoz" class="button">Converter Voz</a>
+            <a href="/historico" class="button">Histórico</a>
         </div>
     </div>
 
@@ -41,6 +41,7 @@
 </footer>
 </html>
 <script>
+    // Simulando o nome de usuário
     fetch('../static/components/header.html')
         .then(response => response.text())
         .then(data => document.getElementById('header').innerHTML = data)
@@ -51,6 +52,5 @@
             .then(response => response.text())
             .then(data => document.getElementById('footer').innerHTML = data)
             .catch(error => console.error('Erro ao carregar o footer:', error));
-    
     
 </script>

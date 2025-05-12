@@ -1,3 +1,4 @@
+#Rota dedicada para as funcionalidades de autenticação e cadastro e login de usuários
 from fastapi import FastAPI, Depends, Request, Form, APIRouter, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -12,6 +13,7 @@ from pydantic import BaseModel
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 import logging
+from src.routes.rotaFunc import router as rotaFunc
 
 
 logging.basicConfig(level=logging.INFO)
@@ -111,5 +113,8 @@ def get_user_info(token: str = Depends(oauth2_scheme), db: Session = Depends(get
         raise HTTPException(status_code=401, detail="Token inválido")
     return {"email": user.email, "name": user.name}
 
+
+# Incluindo os módulos de rota
+app.include_router(rotaFunc) 
 app.include_router(router)
 

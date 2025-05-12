@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de Sinais</title>
+</head>
+<body>
+
+    <h1>Captar Sinais</h1>
+    <p>Esta página é para capturar ou enviar vídeos contendo sinais.</p>
+
+    <!-- Formulário de upload de vídeo -->
+    <form id="video-upload-form" action="/upload_video/" method="post" enctype="multipart/form-data">
+        <label for="video">Escolha um vídeo:</label><br>
+        <input type="file" name="video" id="video" accept="video/*" required><br><br>
+        <button type="submit">Enviar Vídeo</button>
+    </form>
+
+    <br><hr><br>
+
+    <!-- Se futuramente quiser usar captura com webcam -->
+    <button id="start-button">Iniciar Captura (Webcam)</button>
+    <button id="stop-button">Parar Captura</button>
+
+    <script>
+        document.getElementById('start-button').addEventListener('click', function () {
+            alert('Captura iniciada! (Função ainda não implementada)');
+        });
+
+        document.getElementById('stop-button').addEventListener('click', function () {
+            alert('Captura parada! (Função ainda não implementada)');
+        });
+    </script>
+
+</body>
+</html>
