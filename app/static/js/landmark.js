@@ -1,103 +1,97 @@
-// landmark.js
-// Versão completa corrigida das importações
-import * as tf from "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.5.0/+esm";
-import "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@4.5.0/+esm";
-import * as handpose from "https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.7.0/+esm";
+// landmark.js — usa os globals tf, handpose e tfjsConverter
 
-const video = document.getElementById("video");
-const canvas = document.getElementById("canvas");
-const gestureSpan = document.getElementById("gestureName");
-const ctx = canvas.getContext("2d");
+(async () => {
+  const video        = document.getElementById("video");
+  const canvas       = document.getElementById("canvas");
+  const ctx          = canvas.getContext("2d");
+  const gestureSpan  = document.getElementById("gestureName");
+  const btnWebcam    = document.getElementById("btnWebcam");
+  const btnArquivo   = document.getElementById("btnArquivo");
+  const filePicker   = document.getElementById("filePicker");
+  const statusLabel  = document.getElementById("status");
 
-const btnArquivo = document.getElementById("btnArquivo");
-const filePicker = document.getElementById("filePicker");
-const status = document.getElementById("status");
-
-const API_URL = "/reconhecer/";
-
-let hpModel = null;
-
-async function init() {
+  // 1) Inicializa TensorFlow.js + WebGL
   await tf.setBackend("webgl");
-  hpModel = await handpose.load();
-  status.textContent = "Modelo carregado. Escolha um vídeo.";
-  loop();
-}
+  statusLabel.textContent = "Carregando modelo…";
 
-// Laço principal
-async function loop() {
-  if (video.readyState >= 2) {
-    const preds = await hpModel.estimateHands(video);
+  // 2) Carrega o modelo handpose (global handpose)
+  const hpModel = await handpose.load();
+  statusLabel.textContent = "Modelo carregado. Escolha webcam ou vídeo.";
+
+  let ultimaChamada = 0;
+
+  // Desenha os pontos
+  function drawLandmarks(landmarks) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    landmarks.forEach(([x, y]) => {
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, 2 * Math.PI);
+      ctx.fillStyle = "red";
+      ctx.fill();
+    });
+  }
 
-    if (preds.length > 0) {
-      const landmarks = preds[0].landmarks;
-      desenhaPontos(landmarks);
-
-      const flat = landmarks.flat();
-      const gesto = await reconhecerBackend(flat);
-      gestureSpan.textContent = gesto;
-    } else {
-      gestureSpan.textContent = "—";
+  // Chama o FastAPI
+  async function reconhecerBackend(vetor) {
+    const agora = Date.now();
+    if (agora - ultimaChamada < 200) return gestureSpan.textContent || "—";
+    ultimaChamada = agora;
+    try {
+      const resp = await fetch("/reconhecer/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ landmarks: vetor })
+      });
+      if (!resp.ok) throw new Error(resp.status);
+      const data = await resp.json();
+      return data.gesture || "—";
+    } catch (e) {
+      console.error("Erro no backend:", e);
+      return "erro";
     }
   }
 
-  requestAnimationFrame(loop);
-}
-
-// Desenha pontos vermelhos nas articulações da mão
-function desenhaPontos(landmarks) {
-  landmarks.forEach(([x, y]) => {
-    ctx.beginPath();
-    ctx.arc(x, y, 4, 0, 2 * Math.PI);
-    ctx.fillStyle = "red";
-    ctx.fill();
-  });
-}
-
-// Envia os landmarks para o backend e retorna a resposta
-let ultimaChamada = 0;
-async function reconhecerBackend(vetor) {
-  const agora = Date.now();
-  if (agora - ultimaChamada < 200) return gestureSpan.textContent || "—";
-  ultimaChamada = agora;
-
-  try {
-    const resp = await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ landmarks: vetor })
-    });
-
-    if (!resp.ok) throw new Error("Erro no reconhecimento");
-
-    const data = await resp.json();
-    return data.gesture || "—";
-  } catch (e) {
-    console.error("Erro ao reconhecer gesto:", e);
-    return "erro";
+  // Loop de inferência
+  async function loop() {
+    if (video.readyState >= 2) {
+      const preds = await hpModel.estimateHands(video);
+      if (preds.length > 0) {
+        const landmarks = preds[0].landmarks;
+        drawLandmarks(landmarks);
+        const flat = landmarks.flat();
+        gestureSpan.textContent = await reconhecerBackend(flat);
+      } else {
+        gestureSpan.textContent = "—";
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+    requestAnimationFrame(loop);
   }
-}
 
-// Botão: abre seletor de vídeo
-btnArquivo.addEventListener("click", () => {
-  filePicker.click();
-});
+  // Eventos de UI
+  btnWebcam.addEventListener("click", async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      video.srcObject = stream;
+      statusLabel.textContent = "Webcam ativa";
+    } catch {
+      statusLabel.textContent = "Falha ao acessar webcam";
+    }
+  });
 
-// Ao selecionar o vídeo, inicia a reprodução
-filePicker.addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
+  btnArquivo.addEventListener("click", () => filePicker.click());
+  filePicker.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    video.srcObject = null;
+    video.src = URL.createObjectURL(file);
+    statusLabel.textContent = `Tocando: ${file.name}`;
+    video.onloadeddata = () => {
+      canvas.width  = video.clientWidth;
+      canvas.height = video.clientHeight;
+    };
+  });
 
-  const url = URL.createObjectURL(file);
-  video.src = url;
-  status.textContent = `Tocando: ${file.name}`;
-
-  video.onloadeddata = () => {
-    canvas.width = video.clientWidth;
-    canvas.height = video.clientHeight;
-  };
-});
-
-// Inicia tudo
-init();
+  // Inicia o loop
+  loop();
+})();
