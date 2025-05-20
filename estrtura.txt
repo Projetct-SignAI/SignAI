@@ -1,0 +1,59 @@
+SignAI/
+├── src/                     
+│   ├── __init__.py
+│   ├── main.py             # Arquivo principal
+│
+│   ├── routes/
+│   │   ├── rotas.py        # Define as rotas
+│   │   └── rotasFunc.py        # Define as rotas das funções
+│
+│   ├── models/
+│   │   ├── user.py         # Define o modelo do banco
+│   ├── utils/
+│   │   ├── bancoPostgres.py # Conexão com PostgreSQL
+│
+│   ├── machineL/
+│   │   ├── sinalmodel.py         
+│   │   ├── processarVideo.py
+│   │   ├── landMarks.py
+│
+│   │   ├── treinamento/
+│   │   │   └── boa_tarde/
+│   │   │   ├──  oi/
+│   │   │   │   ├──  Videos
+│
+├── static/                  # Arquivos estáticos (CSS, JS, imagens)
+│
+│   ├── components      
+│   ├── footer.html
+│   ├── header.html           
+│
+│
+│   ├── css/
+│   │   └── login.css
+│   │   └── menu.css
+│   │   └── criarNovaSenha.css
+│   │   └── recuperarSenha.css
+│   │   ├── cadastro.css      
+│   │   ├── home.css          
+│
+│   ├── templates/              
+│   ├── login.html
+│   ├── cadastro.html
+│   ├── index.html  
+│   ├── criarNovaSenha.html
+│   ├── recuperarSenha.html    
+│   ├── captarSinais.html              
+│   └── home.html            
+│
+│   ├── js/             
+│   ├── login.js
+│   ├── cadastro.js            
+│   └── main/                       # Diretório novo com os JS de reconhecimento
+│   │       ├── main.js                # Carrega webcam ou vídeo, roda modelo
+│   │       ├── gestures.js            # Define os gestos (ex: joinha, paz, etc.)
+│   │       └── ui.js (opcional)       # Elementos de feedback visual
+│
+├── requirements.txt        # Lista de dependências
+├── README.md               # Documentação do projeto
+└── .gitignore              # Arquivos a serem ignorados no Git
