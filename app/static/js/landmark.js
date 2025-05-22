@@ -1,6 +1,6 @@
 // landmark.js — usa os globals tf, handpose e tfjsConverter
 
-(async () => {
+window.addEventListener("DOMContentLoaded", async () => {
   const video        = document.getElementById("video");
   const canvas       = document.getElementById("canvas");
   const ctx          = canvas.getContext("2d");
@@ -94,4 +94,4 @@
 
   // Inicia o loop
   loop();
-})();
+});
