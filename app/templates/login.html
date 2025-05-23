@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sign</title>
-    <link rel="stylesheet" href="../static/css/login.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrar – SignAI</title>
+
+    <!-- Estilo da página -->
+    <link rel="stylesheet" href="../static/css/login.css" />
 </head>
+
 <body>
-    <div class="container">
-        <div class="left">
-            <h1>SignAI</h1>
-            <p>"Communication is not a barrier"</p>
-            <h2>Login</h2>
-            <p>Não tem uma conta ainda? <a href="/cadastro">Crie já!</a></p>
+    <!-- Bolhas de fundo decorativas -->
+    <div class="background"></div>
 
-            <form id="login-form">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
-                <br>
-                
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-                <br>
-            
-                <a href="recuperarSenha.html">Esqueceu a senha?</a>
-                
-                <button type="submit">Login</button>
-            </form>
+    <!-- Cartão principal -->
+    <div class="card">
+        <!-- Logo ampliado -->
+        <img class="logo" src="../static/images/logo2.png" alt="Logo SignAI" />
 
-            <p id="error-message" style="color: red; display: none;">Usuário ou senha inválidos</p>
-        </div>
-        <div class="right">
-            <img src="placeholder.png" alt="Imagem representativa" width="250px">
-        </div>
+        <h4 class="welcome">Bem-vindo(a)</h4>
+
+        <!-- Formulário -->
+        <form id="login-form" class="form">
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+            />
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Senha"
+                required
+            />
+            <button type="submit">Entrar</button>
+
+            <!-- Mensagem de erro -->
+            <p id="error-message" class="error" style="display:none;">
+                Usuário ou senha inválidos
+            </p>
+        </form>
+
+        <!-- Rodapé -->
+        <footer>
+            Não tem conta?
+            <a href="/cadastro">Registre-se aqui</a>
+        </footer>
     </div>
 
-    <div class="footer">
-        <p>SignAI</p>
-        <p>© 2025 Todos os direitos reservados</p>
-    </div>
+    <!-- Script -->
     <script src="../static/js/login.js"></script>
-        
-
 </body>
+
 </html>

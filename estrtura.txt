@@ -26,7 +26,8 @@ SignAI/
 │
 │   ├── components      
 │   ├── footer.html
-│   ├── header.html           
+│   ├── header.html
+│   ├── mascot.html              
 │
 │
 │   ├── css/
@@ -35,8 +36,18 @@ SignAI/
 │   │   └── criarNovaSenha.css
 │   │   └── recuperarSenha.css
 │   │   ├── cadastro.css      
-│   │   ├── home.css          
+│   │   ├── home.css  
+│   │   ├── mascot.css           
 │
+├── images/
+│   │   └── 1.png
+│   │   └── 2.png
+│   │   └── 3.png
+│   │   └── 4.png
+│   │   ├── 5.png      
+│   │   ├── 6.png   
+|
+|
 │   ├── templates/              
 │   ├── login.html
 │   ├── cadastro.html
@@ -46,7 +57,9 @@ SignAI/
 │   ├── captarSinais.html              
 │   └── home.html            
 │
-│   ├── js/             
+│   ├── js/     
+│   ├── home.js
+│   ├── mascot.js 
 │   ├── login.js
 │   ├── cadastro.js            
 │   └── main/                       # Diretório novo com os JS de reconhecimento

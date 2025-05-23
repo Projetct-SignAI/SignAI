@@ -1,15 +1,26 @@
-<!-- menu.html -->
-<link rel="stylesheet" href="../static/css/menu.css">
+<link rel="stylesheet" href="/static/css/menu.css" />
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-<div class="header">
-    <h2>SignAI</h2>
-    <div class="header-icons">
-        <span>🏠</span>
-        <span>⚙️</span>
-        <span>👤</span>
-    </div>
-</div>
+<header class="site-header">
+  <div class="container">
+    <!-- Ícone + texto -->
+    <a href="/" class="logo">
+      <i class="fa-solid fa-sign-language"></i>
+      <span>SignAI</span>
+    </a>
 
+    <nav class="nav">
+      <ul>
+        <li><a href="/home"><i class="fa-solid fa-house"></i><span class="label">Home</span></a></li>
+        <li><a href="/config"><i class="fa-solid fa-gear"></i><span class="label">Config</span></a></li>
+        <li><a href="/perfil"><i class="fa-solid fa-user"></i><span class="label">Perfil</span></a></li>
+      </ul>
+    </nav>
 
-
-
+    <button class="btn-menu" aria-label="Abrir menu"
+            onclick="document.querySelector('.nav').classList.toggle('open')">
+      <span class="hamburger"></span>
+    </button>
+  </div>
+</header>
