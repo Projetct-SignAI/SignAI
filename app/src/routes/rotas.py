@@ -38,8 +38,7 @@ ALGORITHM = "HS256"
 
 templates = Jinja2Templates(directory="templates")
 
-# Montar arquivos estáticos
-app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 # Dependência para obter a sessão do banco
 def get_db():
@@ -142,4 +141,3 @@ async def reconhecer_gesto(payload: LandmarksPayload):
 
 app.include_router(rotaFunc)
 app.include_router(router)
-app.include_router(reconhecer_router)

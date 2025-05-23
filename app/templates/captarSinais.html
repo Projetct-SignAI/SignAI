@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Captar Sinais - SignAI</title>
-  <link rel="stylesheet" href="/static/css/home.css"/>
+  <link rel="stylesheet" href="/static/css/captarSinais.css"/>
 
   <!-- 1) Carrega TensorFlow.js + WebGL backend (UMD) -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.5.0/dist/tf.min.js"></script>
@@ -14,11 +14,11 @@
   <!-- 3) Carrega Handpose (UMD) -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.1.0/dist/handpose.js"></script>
   <!-- 4) Seu script de aplicação, sem imports -->
-  <script src="/static/js/landmark.js"></script>
+
 </head>
 <body>
-  <div id="header"></div>
-  <div class="main-content">
+      <div id="header"></div>
+
     <h1>Reconhecimento de Sinais</h1>
     <p>Escolha uma fonte de vídeo para detectar gestos com IA:</p>
     <section class="controls">
@@ -34,16 +34,23 @@
       </div>
     </div>
     <h2>Gesto detectado: <span id="gestureName">—</span></h2>
-  </div>
-  <div id="footer"></div>
+
+<div id="footer"></div>
+  <script src="/static/js/landmark.js"></script>
 
   <script>
+    // Carrega header e footer
     fetch('/static/components/header.html')
-      .then(r => r.text()).then(html => document.getElementById('header').innerHTML = html);
+      .then(r => r.text())
+      .then(html => document.getElementById('header').innerHTML = html)
+      .catch(err => console.error('Erro ao carregar o header:', err));
+
     fetch('/static/components/footer.html')
-      .then(r => r.text()).then(html => document.getElementById('footer').innerHTML = html);
+      .then(r => r.text())
+      .then(html => document.getElementById('footer').innerHTML = html)
+      .catch(err => console.error('Erro ao carregar o footer:', err));
   </script>
-  <script type="module" src="../static/js/landmark.js"></script>
 
 </body>
+
 </html>

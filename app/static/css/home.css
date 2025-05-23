@@ -6,14 +6,7 @@
         background-color: #f4f4f4;
         text-align: center;
     }
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background: white;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    }
+    
     .header-icons {
         display: flex;
         gap: 15px;
@@ -38,11 +31,7 @@
         cursor: pointer;
         font-size: 18px;
     }
-    .footer {
-        margin-top: 50px;
-        padding: 20px;
-        background: white;
-    }
+    
     .box {
         width: 60%;
         height: 300px;
@@ -63,8 +52,4 @@
     .button:nth-child(1) { left: 10%; }
     .button:nth-child(2) { left: 40%; }
     .button:nth-child(3) { left: 70%; }
-    footer {
-        margin-top: 50px;
-        padding: 20px;
-        border-top: 1px solid #ccc;
-    }
+    

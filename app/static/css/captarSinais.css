@@ -1,18 +1,13 @@
-/* /static/css/home.css (captarSinais) */
+/* /static/css/captarSinais.css (captarSinais) */
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  color: #333;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center; /* Centraliza verticalmente */
-  text-align: center;      /* Centraliza textos e elementos inline */
-}
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        text-align: center;
+    }
 
 h1, h2 {
   text-align: center;
@@ -38,18 +33,6 @@ h1, h2 {
 #status {
   order: 3; /* Posiciona após os botões */
   margin-top: 10px;
-}
-
-/* Corrige a altura do conteúdo principal */
-.main-content {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0;
-  text-align: center;
-  max-width: 800px; /* Controla a largura máxima do conteúdo */
-  width: 90%;
 }
 
 
@@ -78,7 +61,6 @@ video {
   height: auto;
   max-width: 100%;
   max-height: 100%;
-  transform: scaleX(-1); /* Espelha a webcam */
 }
 
 canvas {
