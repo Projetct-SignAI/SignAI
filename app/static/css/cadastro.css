@@ -1,73 +1,155 @@
-body {
-    font-family: Arial, sans-serif;
+/* ------------ RESET ------------ */
+* {
+    box-sizing: border-box;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
+    padding: 0;
 }
-.container {
-    display: flex;
-    max-width: 900px;
-    width: 90%;
-    background: white;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 0 32px;
+    background: #eff9ff;
+    font-family: "Euclid Circular A", "Poppins", Arial, sans-serif;
+}
+
+@media (width >= 500px) {
+    body {
+        padding: 0;
+    }
+}
+
+/* ----------- FUNDO ------------ */
+.background {
+    position: fixed;
+    top: -50vmin;
+    left: -50vmin;
+    width: 100vmin;
+    height: 100vmin;
+    border-radius: 47% 53% 61% 39% / 45% 51% 49% 55%;
+    background: #65c8ff;
+}
+
+.background::after {
+    content: "";
+    position: inherit;
+    right: -50vmin;
+    bottom: -55vmin;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: #143d81;
+}
+
+/* ----------- CARTÃO ----------- */
+.card {
+    position: relative;
+    z-index: 3;
+    width: 94%;
+    margin: 0 20px;
+    padding: 210px 30px 54px;       /* espaço extra para logo e campos */
+    border-radius: 24px;
+    background: #ffffff;
+    text-align: center;
+    box-shadow: 0 100px 100px rgb(0 0 0 / 10%);
     overflow: hidden;
 }
-.left {
-    flex: 1;
-    padding: 30px;
-    text-align: left;
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -880px;
+    left: 50%;
+    translate: -50% 0;
+    width: 1000px;
+    height: 1050px;
+    border-radius: 50%;
+    background: #216ce7;
 }
-.left h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
+
+@media (width >= 500px) {
+    .card {
+        margin: 0;
+        width: 380px;
+    }
 }
-.left p {
-    color: gray;
-    font-size: 14px;
+
+/* --------- LOGO & TÍTULO -------- */
+.logo {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    translate: -50% 0;
+    width: 200px;
+    height: 200px;
 }
-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
+
+.welcome {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 34px;
+    color: #216ce7;
 }
-input {
-    padding: 12px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+/* ----------- FORM ------------- */
+.form {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 42px;
+}
+
+.form :is(input, button) {
     width: 100%;
-    font-size: 14px;
+    height: 56px;
+    border-radius: 28px;
+    font-size: 16px;
+    font-family: inherit;
 }
-button {
-    padding: 12px;
-    margin-top: 20px;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 5px;
+
+/* Inputs */
+.form > input {
+    border: 0;
+    padding: 0 24px;
+    color: #222222;
+    background: #ededed;
+}
+
+.form > input::placeholder {
+    color: rgb(0 0 0 / 28%);
+}
+
+/* Botão */
+.form > button {
+    border: 0;
+    color: #f9f9f9;
+    background: #226ce7;
+    display: grid;
+    place-items: center;
+    font-weight: 500;
     cursor: pointer;
-    font-size: 14px;
+    transition: 0.25s;
 }
-button:hover {
-    background-color: #333;
+.form > button:hover {
+    filter: brightness(1.1);
 }
-.right {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eaeaea;
-    padding: 20px;
-}
-.footer {
-    width: 100%;
-    text-align: center;
+
+/* Mensagem de erro */
+.error {
     margin-top: 10px;
-    font-size: 12px;
-    color: gray;
+    font-size: 14px;
+    color: #ff4d4f;
+}
+
+/* ----------- RODAPÉ ----------- */
+footer {
+    color: #a1a1a1;
+}
+
+footer > a {
+    color: #216ce7;
+    text-decoration: none;
+}
+footer > a:hover {
+    text-decoration: underline;
 }

@@ -2,17 +2,38 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título dinâmico -->
   <title>{% block title %}SignAI{% endblock %}</title>
-  <link rel="stylesheet" href="../static/css/home.css" />
+
+  <!-- CSS global (paleta + header/footer) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}" />
+  <!-- CSS adicional geral (ex.: home.css) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+
+  <!-- Ícones Font Awesome (usados no header) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  {# Bloco opcional para CSS específico de cada página #}
+  {% block extra_css %}{% endblock %}
 </head>
 <body>
+  {# Cabeçalho global #}
   {% include "/components/header.html" %}
 
   <main>
+    {# Conteúdo principal injetado pelas páginas filhas #}
     {% block content %}{% endblock %}
   </main>
 
+  {# Rodapé global #}
   {% include "/components/footer.html" %}
+
+  {# Bloco opcional para scripts específicos de cada página #}
+  {% block extra_js %}{% endblock %}
 </body>
 </html>

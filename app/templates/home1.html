@@ -1,64 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - SignAI</title>
-  <link rel="stylesheet" href="/static/css/home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SignAI – Comunicação Acessível</title>
 
-  <!-- Import map para resolver os pacotes TensorFlow e Handpose -->
-  <script type="importmap">
-  {
-    "imports": {
-      "@tensorflow/tfjs": "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.5.0/dist/tf.min.js",
-      "@tensorflow/tfjs-backend-webgl": "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@4.5.0/dist/tf-backend-webgl.js",
-      "@tensorflow/tfjs-converter": "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter@4.5.0/dist/tf-converter.esm.js",
-      "@tensorflow-models/handpose": "https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.1.0/dist/handpose.esm.js"
-    }
-  }
-  </script>
-
-  <!-- Nosso código principal de captura e reconhecimento -->
-  <script type="module" src="/static/js/landmark.js"></script>
+  <!-- Estilos específicos desta página -->
+  <link rel="stylesheet" href="/static/css/home.css" />
+  <link rel="stylesheet" href="/static/css/mascot.css" />
 </head>
 <body>
-  <div id="header"></div>
+  <!-- Header será injetado aqui -->
+  <div id="header-placeholder"></div>
 
-  <div class="container">
-    <h1>Bem Vindo, <span id="username"></span></h1>
-    <div class="welcome-box">
-      <span class="close-btn" onclick="this.parentElement.style.display='none'">✖</span>
-      <h3>Bem-vindo à SignAI</h3>
-      <p>A SignAI foi criada para tornar a comunicação mais acessível e inclusiva. Nossa tecnologia utiliza inteligência artificial para reconhecer sinais de Libras e convertê-los em texto e áudio em tempo real.</p>
-      <p>Aqui, você pode explorar todas as funcionalidades e facilitar a comunicação de forma prática e intuitiva:</p>
-      <ul>
-        <li>Captura de sinais via câmera</li>
-        <li>Conversão de sinais para voz</li>
-        <li>Interface acessível e intuitiva</li>
-      </ul>
-      <p>Gostaria de um rápido tutorial para entender como utilizar o site?</p>
-      <button onclick="location.href='/tutorial'">➡</button>
-    </div>
-    <div class="box">
-      <a href="/captarSinais" class="button">Captar Sinais</a>
-      <a href="/converterVoz" class="button">Converter Voz</a>
-      <a href="/historico" class="button">Histórico</a>
-    </div>
-  </div>
+  <main>
+    <!-- HERO ------------------------------------------------------>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Descubra o mundo da <span>Língua de Sinais</span></h1>
+        <p>
+          O SignAI utiliza IA para facilitar a comunicação entre surdos e
+          ouvintes, promovendo inclusão de forma simples e acessível.
+        </p>
+        <div class="buttons">
+          <a href="/captarSinais" class="btn">Captar Sinais</a>
+          <a href="/converterVoz" class="btn-outline">Converter texto</a>
+        </div>
+      </div>
 
-  <div id="footer"></div>
+      <div class="hero-img">
+        <img src="/static/images/libraImg.png" alt="Ilustração de Libras" />
+      </div>
+    </section>
 
-  <script>
-    // Carrega header e footer
-    fetch('/static/components/header.html')
-      .then(r => r.text())
-      .then(html => document.getElementById('header').innerHTML = html)
-      .catch(err => console.error('Erro ao carregar o header:', err));
+    <!-- ESTATÍSTICAS --------------------------------------------->
+    <section class="stats">
+      <div><strong>23%</strong><br />da população brasileira usa ou conhece a Língua de Sinais</div>
+      <div><strong>10 milhões</strong><br />de brasileiros têm algum grau de surdez</div>
+      <div><strong>80%</strong><br />dos surdos enfrentam barreiras em serviços públicos</div>
+    </section>
 
-    fetch('/static/components/footer.html')
-      .then(r => r.text())
-      .then(html => document.getElementById('footer').innerHTML = html)
-      .catch(err => console.error('Erro ao carregar o footer:', err));
-  </script>
+    <!-- FUNCIONALIDADES ------------------------------------------>
+    <section class="features">
+      <h2>Funcionalidades principais do SignAI</h2>
+
+      <div class="cards">
+        <!-- Card 1 -->
+        <a href="/captarSinais" class="card-link">
+          <div class="card">
+            <img src="/static/images/captura-de-foto.png" alt="Ícone câmera" />
+            <h3>Captura de Sinais</h3>
+            <p>
+              Utiliza a câmera do seu dispositivo para identificar sinais em
+              Libras em tempo real.
+            </p>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="/converterVoz" class="card-link">
+          <div class="card">
+            <img src="/static/images/texticon.png" alt="Ícone tradutor" />
+            <h3>Texto para Sinais</h3>
+            <p>
+              Converta textos digitados em sinais animados, facilitando a
+              comunicação.
+            </p>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="/historico" class="card-link">
+          <div class="card">
+            <img src="/static/images/tempo.png" alt="Ícone histórico" />
+            <h3>Histórico de Conversas</h3>
+            <p>
+              Revise interações anteriores e acompanhe seu progresso.
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA ------------------------------------------------------->
+    <section class="cta">
+      <h2>Comece agora mesmo!</h2>
+      <p>
+        Use o SignAI para promover inclusão, aprender Libras e facilitar a
+        comunicação com mais empatia.
+      </p>
+      <a href="/tutorial" class="btn">Saiba Mais</a>
+    </section>
+  </main>
+
+  <!-- Footer será injetado aqui -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="/static/js/loadComponents.js"></script>
+  <script src="/static/js/home.js"></script>
+  <script src="/static/js/mascot.js"></script>
 </body>
 </html>
