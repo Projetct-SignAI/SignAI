@@ -1,58 +1,159 @@
-/* Estilos para o Header */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    border-bottom: 1px solid #ccc;
-    background-color: #f8f8f8;
+/* Paleta SignAI */
+:root {
+  --primary: #226ce7;
+  --accent: #65c8ff;
+  --background: #f9f9f9;
+  --text-dark: #0d0d0d;
 }
 
-/* Ícones do Header */
-.header-icons {
-    display: flex;
-    gap: 15px;
-    font-size: 20px;
+/* Reset rápido */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Estilos para a Navegação */
-header nav {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    background-color: #fff;
+/* Header fixo no topo */
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--background);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 20px;
+/* Limita largura e centraliza conteúdo */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
 }
 
-header nav ul li {
-    display: inline;
+/* Logo */
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
 }
 
-header nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 10px;
+/* Navegação desktop */
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
 }
 
-header nav ul li a:hover {
-    color: #007BFF;
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
-/* Estilos para o Footer */
-.footer {
-    margin-top: 50px;
-    padding: 20px;
-    border-top: 1px solid #ccc;
-    background-color: #f8f8f8;
-    text-align: center;
-    font-size: 14px;
-    color: #666;
+.nav a:hover,
+.nav a:focus {
+  color: var(--primary);
+}
+
+/* Ícone + rótulo (label pode sumir no mobile) */
+.label {
+  display: inline-block;
+}
+
+/* Botão hambúrguer */
+.btn-menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--text-dark);
+  margin: 5px 0;
+  transition: transform 0.3s;
+}
+
+/* --- Mobile -------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Menu lateral que desliza */
+  .nav {
+    position: fixed;
+    inset: 0 0 0 auto;         /* topo, direita, baixo, esquerda */
+    width: 220px;
+    background: var(--background);
+    padding: 4rem 1rem;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+  }
+  .nav.open {
+    transform: translateX(0);
+  }
+  .nav ul {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .btn-menu {
+    display: block;
+  }
+  .label {
+    display: none;            /* Mostra só ícone para poupar espaço */
+  }
+}
+
+/* --- Footer -------------------------------------------------- */
+.site-footer {
+  background: var(--background);
+  padding: 2rem 1rem;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.site-footer .brand {
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;          /* espaço entre ícone e texto */
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.logo i {
+  font-size: 1.8rem;    /* tamanho do ícone */
+}
+
+/* Alinha ícone + texto no rodapé */
+.site-footer .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;      /* espaço entre ícone e texto */
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.site-footer .brand i {
+  font-size: 1.15rem; /* ajuste livre */
 }
