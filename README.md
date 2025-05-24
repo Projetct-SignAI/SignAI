@@ -159,62 +159,26 @@ Solução:
 
 ## **📌 7. O que foi atualizado**
 
-# SignAI - Atualização 0.2 - Autenticação 
+# SignAI - Atualização 0.4 - IA e automação 
 
-## 🔒 Autenticação JWT e Hash de Senhas com Argon2
+#### 🤖 Reconhecimento de Gestos com Webcam + IA no Backend
 
-Esta atualização implementa a autenticação de usuários utilizando JWT para gerenciamento de sessões seguras e Argon2 para hashing de senhas.
+Esta versão introduz um pipeline simplificado de inferência:  
+o navegador captura frames da webcam, envia ao backend e recebe o gesto traduzido em tempo-real (sem treino online).
 
 ### 🛠 Tecnologias Utilizadas
-- **PyJWT** para geração e validação do token JWT.
-- **argon2-cffi** para hashing seguro de senhas.
+- **MediaPipe Hands** para detecção de pontos da mão no backend.  
+- **OpenCV** para captura e pré-processamento.  
+- **Scikit-learn (RandomForest)** para classificar gestos a partir dos pontos.  
+- **Fetch API + FormData** no frontend para upload contínuo de snapshots JPEG.
 
 ---
 
 ## 📌 Instalação e Configuração
 
 ### 1️⃣ Atualizar Dependências
-Certifique-se de instalar as novas bibliotecas adicionadas ao projeto:
 ```bash
 pip install -r requirements.txt
-```
-
-Se precisar atualizar o arquivo `requirements.txt`, execute:
-```bash
-pip freeze > requirements.txt
-```
-
-### 2️⃣ Configurar a Autenticação
-A autenticação foi implementada na rota `/login`, onde o sistema:
-1. Verifica as credenciais do usuário.
-2. Compara a senha informada com o hash armazenado usando Argon2.
-3. Retorna um token JWT em caso de sucesso.
-
-### 3️⃣ Cadastro de Usuários com Hash Seguro
-Ao criar um novo usuário, a senha é automaticamente criptografada com Argon2 antes de ser armazenada no banco de dados.
-
-
----
-
-## 🚀 Uso do JWT
-Após o login bem-sucedido, o sistema retorna um token JWT que deve ser incluído nas requisições autenticadas.
-
-#### Exemplo de Requisição Autenticada:
-```bash
-curl -H "Authorization: Bearer <SEU_TOKEN_AQUI>" http://localhost:8000/protected-route
-```
-
----
-
-## 🛠 Possíveis Melhorias
-- Implementar refresh tokens para sessões persistentes.
-- Criar um sistema de recuperação de senha.
-
-Essa atualização melhora a segurança do sistema e a gestão de autenticação dos usuários. Se tiver dúvidas ou sugestões, contribua! 🎯
-
-
-
-
 ---
 
 ## Observações
