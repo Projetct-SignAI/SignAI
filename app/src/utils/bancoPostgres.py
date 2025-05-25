@@ -6,7 +6,7 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 DATABASE_URL = "postgresql+psycopg2://User:password@localhost:5432/SignAI"
 """
 
-DATABASE_URL = "postgresql+psycopg2://vinicius:senha123@localhost:5432/SignAI"
+DATABASE_URL = "postgresql+psycopg2://postgres:postgres@localhost:5432/SignAI"
 
 engine = create_engine(DATABASE_URL, echo=True)
 

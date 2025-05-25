@@ -160,6 +160,5 @@ async def texto_para_sinais_page(request: Request):
 # INCLUSÃO DE TODOS OS ROTEADORES
 # —————————————————————————————
 
-app.include_router(reconhecer_router)
 app.include_router(rotaFunc)
 app.include_router(router)
