@@ -1,0 +1,48 @@
+<!-- templates/texto_para_sinais.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Converter Texto para Libras</title>
+  <link rel="stylesheet" href="/static/css/menu.css" />
+  <link rel="stylesheet" href="/static/css/texto_para_sinais.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <main class="texto-sinais-container"></main>
+
+  <!-- VLibras Widget -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    window.vlibrasWidget = new window.VLibras.Widget({
+      position: 'T', opacity: 1, avatar: 'icaro', rootPath: 'https://vlibras.gov.br/app'
+    });
+  </script>
+
+  <!-- Footer customizado -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <!-- Logo no canto esquerdo -->
+      <p class="brand">
+        <i class="fa-solid fa-sign-language"></i>
+        <span>SignAI</span>
+      </p>
+      <!-- Links ao centro, estilizados e deslocados à direita -->
+      <nav class="footer-nav">
+        <a href="/home">Home</a>
+        <a href="/profile">Perfil</a>
+        <a href="/settings">Configurações</a>
+      </nav>
+      <!-- Copyright no canto direito -->
+      <p class="copyright">© 2025 Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script src="/static/js/texto_para_sinais.js"></script>
+</body>
+</html>
