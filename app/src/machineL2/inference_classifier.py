@@ -7,7 +7,7 @@ import mediapipe as mp
 
 BASE_DIR = os.path.dirname(__file__)
 MODEL = pickle.load(open(os.path.join(BASE_DIR, 'model.p'), 'rb'))["model"]
-LABELS_DICT = {0: 'A', 1: 'B', 2: 'C', 3:'D', 4:'E'}  # ajuste conforme seu treino
+LABELS_DICT = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'I', 8: 'L',9: 'M', 10: 'N', 11: 'O', 12: 'P', 13: 'Q', 14: 'R', 15: 'S', 16: 'T', 17: 'U', 18: 'V', 19: 'W', 20: 'Y'}  # ajuste conforme seu treino
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.3)

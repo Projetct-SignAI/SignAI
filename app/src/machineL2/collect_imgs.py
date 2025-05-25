@@ -14,7 +14,7 @@ if not os.path.exists(DATA_DIR):
 # —————————————————————————————
 # DEFINIÇÃO DE PARÂMETROS DO DATASET
 # —————————————————————————————
-number_of_classes = 5  # Número de classes (ex: 5 gestos)
+number_of_classes = 21  # Número de classes (ex: 5 gestos)
 dataset_size = 100
 
 # —————————————————————————————
