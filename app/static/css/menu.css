@@ -1,3 +1,23 @@
+html, body {
+  height: 100%;               /* garante 100 vh reais */
+  margin: 0;                  /* remove margens padrão */
+}
+
+body {
+  display: flex;
+  flex-direction: column;     /* empilha header, main, footer em coluna */
+  min-height: 100vh;          /* ocupa altura total da janela */
+}
+
+main {
+  flex: 1;                    /* cresce e empurra o footer para baixo */
+}
+
+/* Rodapé já existe, mas garantimos que ele siga o fluxo */
+.site-footer {
+  margin-top: auto;           /* força ficar no final se conteúdo for curto */
+}
+
 /* Paleta SignAI */
 :root {
   --primary: #226ce7;

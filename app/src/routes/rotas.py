@@ -29,6 +29,9 @@ app = FastAPI()
 router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
+# Montagem dos arquivos estáticos (se ainda não estiver feito em main.py)
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 # Configuração de hashing com Argon2
 pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
 
@@ -39,7 +42,6 @@ ALGORITHM = "HS256"
 templates = Jinja2Templates(directory="templates")
 
 
-
 # Dependência para obter a sessão do banco
 def get_db():
     db = SessionLocal()
@@ -47,6 +49,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 # —————————————————————————————
 # ROTAS DE AUTENTICAÇÃO / PÁGINAS
@@ -64,13 +67,16 @@ async def home_page(request: Request):
 async def cadastro_page(request: Request):
     return templates.TemplateResponse("cadastro.html", {"request": request})
 
+
 def hash_password(password: str) -> str:
     return pwd_context.hash(password)
+
 
 class UserCreate(BaseModel):
     name: str
     email: str
     password: str
+
 
 @app.post("/cadastro/info")
 async def create_user(user: UserCreate, db: Session = Depends(get_db)):
@@ -83,9 +89,11 @@ async def create_user(user: UserCreate, db: Session = Depends(get_db)):
     db.refresh(new_user)
     return {"message": "Usuário cadastrado com sucesso!"}
 
+
 @app.get("/login", response_class=HTMLResponse)
 async def login_page(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
+
 
 @app.post("/login")
 async def login(
@@ -97,6 +105,7 @@ async def login(
         raise HTTPException(status_code=401, detail="Credenciais inválidas")
     access_token = create_access_token(data={"sub": user.email})
     return JSONResponse({"access_token": access_token, "token_type": "bearer"})
+
 
 @app.get("/user-info")
 async def get_user_info(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
@@ -120,10 +129,13 @@ async def get_user_info(token: str = Depends(oauth2_scheme), db: Session = Depen
 # Carrega uma vez o modelo KNN treinado
 _model = joblib.load("modelo_knn_oi.pkl")
 
+
 class LandmarksPayload(BaseModel):
     landmarks: list[float]
 
+
 reconhecer_router = APIRouter(prefix="/reconhecer", tags=["reconhecimento"])
+
 
 @reconhecer_router.post("/", summary="Recebe vetor de landmarks e retorna nome do gesto")
 async def reconhecer_gesto(payload: LandmarksPayload):
@@ -136,8 +148,18 @@ async def reconhecer_gesto(payload: LandmarksPayload):
 
 
 # —————————————————————————————
+# ROTA DE CONVERSÃO DE TEXTO PARA SINAIS
+# —————————————————————————————
+
+@app.get("/texto-para-sinais", response_class=HTMLResponse)
+async def texto_para_sinais_page(request: Request):
+    return templates.TemplateResponse("texto_para_sinais.html", {"request": request})
+
+
+# —————————————————————————————
 # INCLUSÃO DE TODOS OS ROTEADORES
 # —————————————————————————————
 
+app.include_router(reconhecer_router)
 app.include_router(rotaFunc)
 app.include_router(router)
