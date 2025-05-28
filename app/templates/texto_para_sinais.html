@@ -92,5 +92,11 @@
   </footer>
 
   <script src="/static/js/texto_para_sinais.js"></script>
+  <script>
+  const token = localStorage.getItem("signai_token");
+  if (!token) {
+    window.location.href = "/";
+  }
+</script>
 </body>
 </html>

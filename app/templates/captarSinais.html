@@ -50,6 +50,12 @@
       .then(r => r.text())
       .then(html => document.getElementById('footer').innerHTML = html)
       .catch(err => console.error('Erro ao carregar o footer:', err));
+
+      const token = localStorage.getItem("signai_token");
+      if (!token) {
+        window.location.href = "/";
+      }
+
   </script>
 
 </body>

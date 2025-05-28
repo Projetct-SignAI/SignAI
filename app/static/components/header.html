@@ -24,3 +24,9 @@
     </button>
   </div>
 </header>
+<script>
+  const token = localStorage.getItem("signai_token");
+  if (!token) {
+    window.location.href = "/";
+  }
+</script>

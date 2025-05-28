@@ -6,7 +6,7 @@ from jose import JWTError, jwt
 
 SECRET_KEY = "seu_segredo_super_secreto"
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+ACCESS_TOKEN_EXPIRE_MINUTES = 120  # 2 horas
 
 ph = PasswordHasher()
 
@@ -39,5 +39,13 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
         print(f"⚠️ Erro ao verificar senha: {e}")
         return False
 
-
+#Descriptografando o token JWT
+def decode_access_token(token: str):
+    """Decodifica o token JWT e retorna os dados contidos nele"""
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        return payload
+    except JWTError as e:
+        print(f"⚠️ Erro ao decodificar token: {e}")
+        return None
 

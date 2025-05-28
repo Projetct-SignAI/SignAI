@@ -13,3 +13,10 @@
     <p>© 2025 Todos os direitos reservados</p>
   </div>
 </footer>
+<script>
+  const token = localStorage.getItem("signai_token");
+  if (!token) {
+    window.location.href = "/";
+  }
+</script>
+

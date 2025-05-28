@@ -102,3 +102,9 @@
   <script src="/static/js/mascot.js"></script>
 </body>
 </html>
+<script>
+  const token = localStorage.getItem("signai_token");
+  if (!token) {
+    window.location.href = "/";
+  }
+</script>

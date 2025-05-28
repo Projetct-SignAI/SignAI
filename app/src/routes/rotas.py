@@ -19,7 +19,7 @@ import numpy as np
 
 from src.utils.bancoPostgres import SessionLocal
 from src.models.user import User
-from src.utils.auth import create_access_token, verify_password, get_password_hash
+from src.utils.auth import create_access_token, verify_password,decode_access_token ,SECRET_KEY, ALGORITHM
 from src.routes.rotaFunc import router as rotaFunc
 
 logging.basicConfig(level=logging.INFO)
@@ -35,9 +35,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Configuração de hashing com Argon2
 pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
 
-# Configuração do JWT
-SECRET_KEY = "your_secret_key_here"
-ALGORITHM = "HS256"
+
 
 templates = Jinja2Templates(directory="templates")
 
@@ -103,15 +101,15 @@ async def login(
     user = db.query(User).filter(User.email == form_data.username).first()
     if not user or not verify_password(form_data.password, user.password):
         raise HTTPException(status_code=401, detail="Credenciais inválidas")
-    access_token = create_access_token(data={"sub": user.email})
+    access_token = create_access_token(data={"email": user.email, "name ": user.name})
     return JSONResponse({"access_token": access_token, "token_type": "bearer"})
 
-
+#Chama decode_access_token para decodificar o token JWT e obter os dados do usuário
 @app.get("/user-info")
 async def get_user_info(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        email: str = payload.get("sub")
+        email: str = payload.get("email")
         if email is None:
             raise HTTPException(status_code=401, detail="Token inválido")
         user = db.query(User).filter(User.email == email).first()
