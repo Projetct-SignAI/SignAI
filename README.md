@@ -161,16 +161,8 @@ Solução:
 
 # SignAI - Atualização 0.4 - IA e automação 
 
-#### 🤖 Reconhecimento de Gestos com Webcam + IA no Backend
+#### Token
 
-Esta versão introduz um pipeline simplificado de inferência:  
-o navegador captura frames da webcam, envia ao backend e recebe o gesto traduzido em tempo-real (sem treino online).
-
-### 🛠 Tecnologias Utilizadas
-- **MediaPipe Hands** para detecção de pontos da mão no backend.  
-- **OpenCV** para captura e pré-processamento.  
-- **Scikit-learn (RandomForest)** para classificar gestos a partir dos pontos.  
-- **Fetch API + FormData** no frontend para upload contínuo de snapshots JPEG.
 
 ---
 
