@@ -10,18 +10,66 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-  <main class="texto-sinais-container"></main>
+  <main class="texto-sinais-container">
+    
+  <!-- Painel de tutorial à esquerda -->
+  <div class="painel-tutorial">
+    <div class="tutorial-card">
+      <img src="../static/images/icon1.png" alt="Ícone Tradutor" class="card-icon" />
+      <div class="card-text">
+        <h3>Escolha seu Personagem</h3>
+        <p>Permite personalizar seu parceiro de Tradução!.</p>
+      </div>
+    </div>
+
+    <div class="tutorial-card">
+      <img src="../static/images/traducao.png" alt="Ícone Tradutor" class="card-icon" />
+      <div class="card-text">
+        <h3>Tradutor para libras</h3>
+        <p>Permite converter frases digitadas para Libras com o auxílio de seu personagem</p>
+      </div>
+    </div>
+
+    <div class="tutorial-card">
+      <img src="../static/images/questao.png" alt="Ícone Tradutor" class="card-icon" />
+      <div class="card-text">
+        <h3>Precisa de Ajuda?</h3>
+        <p>Explore um tutorial rápido e dinamico da ferramenta!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mascote à direita -->
+  <div class="mascote-container">
+    <div class="tooltip-mascote">
+      <img src="../static/images/MascoteSentado.png" alt="Mascote SignAI" class="mascote-imagem" />
+      <div class="tooltip-balao">
+        Este ao meu lado é Ícaro!<br>
+        Ele irá ajudá-lo com a tradução de texto para sinais.<br><br>
+        Fique à vontade para testá-lo!
+      </div>
+    </div>
+  </div>
+</main>
+
 
   <!-- VLibras Widget -->
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
   </div>
+
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script>
     window.vlibrasWidget = new window.VLibras.Widget({
       position: 'T', opacity: 1, avatar: 'icaro', rootPath: 'https://vlibras.gov.br/app'
     });
+
+    // Aguarda o carregamento do plugin e simula o clique no botão
+    setTimeout(() => {
+      const btn = document.querySelector('[vw-access-button]');
+      if (btn) btn.click(); // Abre o plugin automaticamente
+    }, 2000); // tempo suficiente para o plugin carregar
   </script>
 
   <!-- Footer customizado -->
