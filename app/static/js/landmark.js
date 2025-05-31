@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const ctx          = canvas.getContext("2d");
   const gestureSpan  = document.getElementById("gestureName");
   const btnWebcam    = document.getElementById("btnWebcam");
-  const btnArquivo   = document.getElementById("btnArquivo");
+  //const btnArquivo   = document.getElementById("btnArquivo");
   const filePicker   = document.getElementById("filePicker");
   const statusLabel  = document.getElementById("status");
 
