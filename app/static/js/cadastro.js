@@ -1,9 +1,5 @@
-/**
- * cadastro.js
- * Envia dados de cadastro para a API, valida senhas e redireciona para a página de login.
- */
-
 document
+
     .getElementById("cadastro-form")
     .addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -29,21 +25,32 @@ document
 
             if (response.ok) {
                 alert(result.message || "Cadastro realizado com sucesso!");
-                window.location.href = "/"; // volta para login
+                window.location.href = "/";
             } else {
-                showError(result.message || "Erro ao cadastrar.");
+                let errorMessage = "Erro ao cadastrar.";
+
+                if (Array.isArray(result.detail)) {
+                    errorMessage = result.detail.map(err => err.msg.replace(/^Value error,?\s*/i, '')).join(" | ");
+                } else if (typeof result.detail === "string") {
+                    errorMessage = result.detail;
+                } else if (result.message) {
+                    errorMessage = result.message;
+                }
+
+
+                showError(errorMessage);
+
             }
+
+            
         } catch (error) {
             console.error("Erro:", error);
             showError("Erro ao processar solicitação.");
         }
     });
-
-/**
- * Exibe mensagem de erro ao usuário
- */
 function showError(msg) {
     const errorEl = document.getElementById("error-message");
-    errorEl.textContent = msg;
+    errorEl.textContent = msg.trim();
     errorEl.style.display = "block";
 }
+

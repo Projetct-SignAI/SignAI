@@ -59,7 +59,8 @@ document
   });
 
 function showError(msg) {
-  const errorEl = document.getElementById("error-message");
-  errorEl.textContent = msg;
-  errorEl.style.display = "block";
+    const errorEl = document.getElementById("error-message");
+    errorEl.textContent = msg.trim();
+    errorEl.style.display = "block";
 }
+

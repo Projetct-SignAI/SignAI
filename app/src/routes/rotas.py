@@ -9,7 +9,8 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, EmailStr, field_validator
+
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
@@ -71,20 +72,41 @@ def hash_password(password: str) -> str:
 
 
 class UserCreate(BaseModel):
-    name: str
-    email: str
-    password: str
+    name: str = Field(..., min_length=3, max_length=50)
+    email: EmailStr
+    password: str = Field(...)
+
+    @field_validator("password")
+    @classmethod
+    def senha_muito_curta(cls, v):
+        if len(v) < 6:
+            raise ValueError("Senha muito curta. Use pelo menos 6 caracteres.")
+        return v
 
 
 @app.post("/cadastro/info")
 async def create_user(user: UserCreate, db: Session = Depends(get_db)):
-    existing_user = db.query(User).filter(User.email == user.email).first()
+
+    existing_email = db.query(User).filter(User.email == user.email).first()
+    if existing_email:
+        raise HTTPException(status_code=400, detail="E-mail já cadastrado")
+    
+    existing_user = db.query(User).filter(User.name == user.name).first()
     if existing_user:
-        raise HTTPException(status_code=400, detail="Usuário já existe")
-    new_user = User(name=user.name, email=user.email, password=hash_password(user.password))
+        raise HTTPException(status_code=400, detail="Nome de usuário já cadastrado")
+
+    if len(user.password) < 6:
+        raise HTTPException(status_code=400, detail="Senha muito curta. Use pelo menos 6 caracteres.")
+
+    new_user = User(
+        name=user.name,
+        email=user.email,
+        password=hash_password(user.password)
+    )
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
+    
     return {"message": "Usuário cadastrado com sucesso!"}
 
 
