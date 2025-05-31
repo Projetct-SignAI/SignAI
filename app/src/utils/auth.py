@@ -6,7 +6,7 @@ from jose import JWTError, jwt
 
 SECRET_KEY = "seu_segredo_super_secreto"
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 120  # 2 horas
+ACCESS_TOKEN_EXPIRE_MINUTES = 1440 # 24 horas
 
 ph = PasswordHasher()
 

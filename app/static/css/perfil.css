@@ -1,0 +1,18 @@
+.profile-wrapper{
+      max-width:620px;margin:60px auto;padding:40px;
+      background:#fff;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.06)
+    }
+    .profile-wrapper h2{color:#226ce7;margin-bottom:24px;text-align:center}
+    .form-group{margin-bottom:18px;text-align:left}
+    .form-group label{display:block;margin-bottom:6px;font-weight:600;color:#333}
+    .form-group input{
+      width:100%;padding:10px 14px;border:1px solid #ccc;border-radius:8px;
+      font-size:1rem
+    }
+    .btn-primary{
+      background:#226ce7;color:#fff;border:none;padding:12px 28px;border-radius:8px;
+      font-weight:bold;cursor:pointer;transition:.3s
+    }
+    .btn-primary:hover{background:#65c8ff}
+    .msg{margin-top:16px;font-weight:600;text-align:center}
+    .msg.success{color:#28a745}.msg.error{color:#d93025}

@@ -10,6 +10,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel, Field, EmailStr, field_validator
+from datetime import timedelta
+
 
 from jose import JWTError, jwt
 from passlib.context import CryptContext
@@ -20,7 +22,7 @@ import numpy as np
 
 from src.utils.bancoPostgres import SessionLocal
 from src.models.user import User
-from src.utils.auth import create_access_token, verify_password,decode_access_token ,SECRET_KEY, ALGORITHM
+from src.utils.auth import create_access_token, verify_password,ACCESS_TOKEN_EXPIRE_MINUTES ,SECRET_KEY, ALGORITHM, get_password_hash
 from src.routes.rotaFunc import router as rotaFunc
 
 logging.basicConfig(level=logging.INFO)
@@ -126,6 +128,72 @@ async def login(
     access_token = create_access_token(data={"email": user.email, "name ": user.name})
     return JSONResponse({"access_token": access_token, "token_type": "bearer"})
 
+
+# —————————————————————————————
+# ROTAS DE PERFIL
+@app.get("/perfil", response_class=HTMLResponse)
+async def perfil(request: Request):
+    return templates.TemplateResponse("perfil.html", {"request": request})
+
+
+class ProfileUpdate(BaseModel):
+    name: str
+    email: EmailStr
+    password: str | None = None
+
+@router.put("/update-profile")
+async def update_profile(
+    payload: ProfileUpdate,
+    token: str = Depends(oauth2_scheme),
+    db: Session = Depends(get_db)
+):
+    try:
+        decoded = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        user_email = decoded.get("email") or decoded.get("sub")
+        if not user_email:
+            raise HTTPException(status_code=401, detail="Token inválido")
+
+        user = db.query(User).filter(User.email == user_email).first()
+        if not user:
+            raise HTTPException(status_code=404, detail="Usuário não encontrado")
+
+        existing_email = db.query(User).filter(
+            User.email == payload.email, User.id != user.id
+        ).first()
+        if existing_email:
+            raise HTTPException(status_code=400, detail="E-mail já cadastrado")
+
+        existing_name = db.query(User).filter(
+            User.name == payload.name, User.id != user.id
+        ).first()
+        if existing_name:
+            raise HTTPException(status_code=400, detail="Nome de usuário já cadastrado")
+
+        if payload.password and len(payload.password) < 6:
+            raise HTTPException(status_code=400, detail="Senha muito curta. Use pelo menos 6 caracteres.")
+
+        user.name  = payload.name
+        user.email = payload.email
+        if payload.password:
+            user.password = get_password_hash(payload.password)
+
+        db.commit()
+
+        # 🔁 Retorna novo token com os dados atualizados
+        new_token = create_access_token(data={"email": user.email, "name": user.name})
+        return {
+            "message": "Perfil atualizado com sucesso",
+            "access_token": new_token,
+            "token_type": "bearer"
+        }
+
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Token expirado")
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Token inválido")
+
+    
+# —————————————————————————————  
 #Chama decode_access_token para decodificar o token JWT e obter os dados do usuário
 @app.get("/user-info")
 async def get_user_info(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
