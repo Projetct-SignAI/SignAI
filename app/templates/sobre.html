@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre – SignAI</title>
+
+  <!-- CSS global já existente -->
+  <link rel="stylesheet" href="/static/css/menu.css">
+  <!-- CSS desta página -->
+  <link rel="stylesheet" href="/static/css/sobre.css">
+</head>
+
+<body>
+  <!-- Header carregado por JS -->
+  <div id="header-placeholder"></div>
+
+  <!-- ================= HERO ================= -->
+  <section class="about-hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Somos um <span class="accent"> projeto acadêmico</span> de tradução automática
+            para <span class="accent">Línguas de Sinais</span> que reune o sonho de estudantes de mentes criativas
+            e apaixonadas por tecnologia.</h1>
+        </h1>
+        <p>
+          Com o poder da IA e da visão computacional, o SignAI aproxima pessoas
+          surdas e ouvintes ao derrubar barreiras de comunicação em tempo real.
+        </p>
+      </div>
+
+      <picture class="hero-image">
+        <img src="../static/images/Imagem01Sobre.png"alt=Mascote do SignAI acenando>
+      </picture>
+    </div>
+  </section>
+
+  <!-- ============== DEPOIMENTO + CTA ============== -->
+  <section class="quote-cta">
+    <div class="container quote-wrap">
+      <blockquote>
+        A tecnologia quebra fronteiras e leva acessibilidade a onde antes
+        não existia. É por isso que o SignAI existe.
+        <cite>— Equipe SignAI</cite>
+      </blockquote>
+
+      <div class="cta-card">
+        <h3>Conectamos pessoas<br>e empresas através da<br>acessibilidade digital</h3>
+        <p>Descubra como o SignAI pode transformar a experiência do seu
+           cliente e impulsionar seus resultados.</p>
+        <a href="/contato" class="btn-primary">Fale com a gente</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LINHA DO TEMPO ================= -->
+<section class="timeline">
+
+    <h1 style="text-align: center; font-size: 2.8rem; font-weight: 700; letter-spacing: 1px; color: #226ce7; margin-bottom: 2rem; font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; text-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        Linha do Tempo
+    </h1>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+  <div class="container">
+
+
+    <div class="timeline-viewport">
+      <button class="timeline-nav prev" aria-label="Anterior">&#60;</button>
+
+      <ul class="timeline-track">
+        <li class="timeline-item">
+          <img src="../static/images/carrosel01.png" alt="2019">
+          <span class="year">Fevereiro</span>
+          <p>Nascimento do SignAI<br>(projeto acadêmico)</p>
+        </li>
+        <li class="timeline-item">
+          <img src="../static/images/carrosel02.png" alt="2021">
+          <span class="year">Março</span>
+          <p>Primeiro MVP<br>MediaPipe Hands</p>
+        </li>
+        <li class="timeline-item">
+          <img src="../static/images/carrosel03.png" alt="2024">
+          <span class="year">Abril</span>
+          <p>Aperfeiçoamento<br>Técnico</p>
+        </li>
+        <li class="timeline-item">
+          <img src="../static/images/carrosel04.png" alt="2025">
+          <span class="year">Maio</span>
+          <p>Lançamento da<br>Primeira versão</p>
+        </li>
+        
+      </ul>
+
+      <button class="timeline-nav next" aria-label="Próximo">&#62;</button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ================= FUNDADORES ================= -->
+  <section class="founders">
+       <h1 style="text-align: center; font-size: 2.8rem; font-weight: 700; letter-spacing: 1px; color: #226ce7; margin-bottom: 2rem; font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; text-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        Conheça nossos fundadores
+    </h1>
+    <div class="container">
+      <div class="founders-grid">
+        <figure class="founder">
+          <img src="../static/images/eurico.png" alt="">
+          <figcaption>
+            <h3>Eduardo Eurico</h3>
+            <p>CTO <br> Visão Computacional </p>
+          </figcaption>
+        </figure>
+        <figure class="founder">
+          <img src="../static/images/vini.png" alt="">
+          <figcaption>
+            <h3>Vinícius Rodrigues</h3>
+            <p>CEO <br> IA & Acessibilidade</p>
+          </figcaption>
+        </figure>
+        <figure class="founder">
+          <img src="../static/images/roger.png" alt="">
+          <figcaption>
+            <h3>Roger Arraz</h3>
+            <p>COO <br>Parcerias Estratégicas</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- ================= IMPRENSA ================= -->
+  <section class="press">
+    <div class="container">
+      <h2>Fale com nossa <br>assessoria de <br> imprensa</h2>
+      <form id="press-form" action="/contato-imprensa" method="post" class="press-form">
+        <label>Nome* <input type="text" name="nome" required></label>
+        <label>E-mail* <input type="email" name="email" required></label>
+        <label>Empresa* <input type="text" name="empresa" required></label>
+        <label>Informações adicionais
+          <textarea name="mensagem" rows="4"></textarea>
+        </label>
+        <label class="chk">
+          <input type="checkbox" name="optin">
+          Eu concordo em receber comunicações.
+        </label>
+        <button type="submit" class="btn-primary">Enviar contato</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer carregado por JS -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Script global que injeta header/footer, se houver -->
+  <script src="/static/js/loadComponents.js"></script>
+  <!-- Script desta página -->
+  <script src="/static/js/sobre.js"></script>
+</body>
+</html>
