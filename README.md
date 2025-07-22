@@ -1,47 +1,61 @@
 # 🧠 SignAI – Backend com FastAPI
 
 <div align="center">
-   <img src="https://img.shields.io/badge/FastAPI-0.110.0-green?logo=fastapi" alt="FastAPI" />
-   <img src="https://img.shields.io/badge/PostgreSQL-17-blue?logo=postgresql" alt="PostgreSQL" />
-   <img src="https://img.shields.io/badge/CI/CD-ready-brightgreen?logo=githubactions" alt="CI/CD" />
+  <img src="https://img.shields.io/badge/FastAPI-0.110.0-green?logo=fastapi" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/PostgreSQL-17-blue?logo=postgresql" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/CI/CD-ready-brightgreen?logo=githubactions" alt="CI/CD" />
+  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status" />
 </div>
 
-**SignAI** é uma solução inovadora que utiliza **Inteligência Artificial** e **Visão Computacional** para traduzir sinais da Língua Brasileira de Sinais (Libras) em **texto e áudio em tempo real**. Este repositório contém o back-end da aplicação, construído com **FastAPI**, **PostgreSQL**, e preparado para **CI/CD** e **deploy em nuvem**.
+---
 
-> ⚠️ **Atenção:** A aplicação ainda **não está publicada online**. Este repositório refere-se à versão local do sistema em desenvolvimento.
+## 🚀 Sobre o SignAI
+
+**SignAI** é uma **startup** focada em **acessibilidade** e **inclusão social**, usando **Inteligência Artificial** e **Visão Computacional** para traduzir, em tempo real, sinais da Língua Brasileira de Sinais (Libras) em **texto** e **áudio**. Nosso objetivo é:
+
+- **Democratizar** o acesso à comunicação para pessoas surdas.
+- Reduzir a **dependência** de intérpretes humanos.
+- Oferecer uma **solução escalável**, de **baixo custo** e fácil manutenção.
+- Ampliar oportunidades **educacionais**, **profissionais** e **governamentais**.
+
+> ⚠️ **Atenção:** A aplicação ainda **não está publicada online**. Este repositório refere-se à versão local em desenvolvimento.
+
+---
+
+## 🎯 Visão & Missão
+
+**Visão:** Ser a principal plataforma de tradução automática de Línguas de Sinais no Brasil até 2026.  
+**Missão:** Construir tecnologia que elimine barreiras de comunicação, promovendo empatia e inclusão por meio de inovação contínua.
 
 ---
 
 ## 📽️ Demonstração
 
-> 🔗 Em breve será disponibilizado aqui um vídeo demonstrando o sistema em funcionamento.
-
-<!-- Exemplo:
-[🎬 Clique para assistir à demo](https://www.youtube.com/watch?v=video-demo)
--->
+> 🔗 Vídeo será disponibilizado em breve para mostrar a aplicação em ação.
 
 ---
 
 ## 📂 Índice
 
-1. [Clonando o repositório](#-1-clonando-o-repositório)
-2. [Instalando as dependências](#-2-instalação-das-dependências)
-3. [Configuração do banco de dados](#-3-configuração-do-banco-de-dados-postgresql)
-4. [Estrutura do projeto](#-4-estrutura-do-projeto)
-5. [Executando o servidor](#-5-executando-o-servidor)
-6. [Problemas comuns e soluções](#-6-problemas-comuns-e-soluções)
-7. [Atualizações](#-7-o-que-foi-atualizado)
-8. [Observações finais](#-observações)
+1. [Clonando o repositório](#-1-clonando-o-repositório)  
+2. [Instalação das Dependências](#-2-instalação-das-dependências)  
+3. [Configuração do Banco de Dados](#-3-configuração-do-banco-de-dados-postgresql)  
+4. [Estrutura do Projeto](#-4-estrutura-do-projeto)  
+5. [Executando o Servidor](#-5-executando-o-servidor)  
+6. [Problemas Comuns & Soluções](#-6-problemas-comuns--soluções)  
+7. [Roadmap & Atualizações](#-7-roadmap--atualizações)  
+8. [Equipe Fundadora](#-8-equipe-fundadora)  
+9. [Observações Finais](#-9-observações-finais)  
 
 ---
 
 ## 📌 1. Clonando o Repositório
 
-> 🔐 Caso não consiga dar `git clone`, use seu **token** como senha. O GitHub aceita apenas tokens.
+> 🔐 Use seu **token** caso o `git clone` solicite autenticação.
 
 ```bash
-git clone https://<SEU_TOKEN_CLASSIC_COM_OPÇÕES_HABILITADAS_DE_REPO>@github.com/Projetct-SignAI/SignAI.git
-```
+git clone https://<SEU_TOKEN>@github.com/Projetct-SignAI/SignAI.git
+
 
 **Comando para Push:**
 
@@ -183,6 +197,26 @@ Acesse no navegador:
 - Tradução de Libras via webcam com TensorFlow + OpenCV + MediaPipe
 
 ---
+
+## 📌 8. Equipe Fundadora
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="path/to/fundador1.jpg" alt="Fundador 1" width="120" /><br>
+        <strong>Nome do Fundador 1</strong><br>
+        CEO & Co-Founder
+      </td>
+      <td align="center">
+        <img src="path/to/fundador2.jpg" alt="Fundador 2" width="120" /><br>
+        <strong>Nome do Fundador 2</strong><br>
+        CTO & Co-Founder
+      </td>
+    </tr>
+  </table>
+</div>
+
 
 ## 📌 Observações
 
