@@ -6,7 +6,6 @@
 from fastapi import APIRouter,HTTPException ,UploadFile, File, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from src.machineL.sinalModel import traduzir_video
 from pydantic import BaseModel
 import numpy as np
 import joblib
