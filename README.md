@@ -58,7 +58,7 @@
 <div align="center">
 
 🎬 <strong>Assista à demonstração:</strong><br>
-<a href="app/static/images/signai0video_TlXcW19c.mp4" target="_blank">
+<a href="https://youtu.be/HUchOBB0NRg" target="_blank">
    <img src="https://img.icons8.com/ios-filled/100/000000/play-button-circled.png" alt="Play Video" width="80" /><br>
    <b>Clique aqui para ver o vídeo da aplicação em ação</b>
 </a>
