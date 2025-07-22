@@ -204,19 +204,19 @@ Acesse no navegador:
   <table>
     <tr>
       <td align="center">
-        <img src="path/to/fundador1.jpg" alt="Fundador 1" width="120" /><br>
+        <img src="app/static/images/eurico.png" alt="Fundador 1" width="120" /><br>
         <strong>Nome do Fundador 1</strong><br>
-        CEO & Co-Founder
+         CTO& Co-Founder
       </td>
       <td align="center">
-        <img src="path/to/fundador2.jpg" alt="Fundador 2" width="120" /><br>
+        <img src="app/static/images/vini.png" alt="Fundador 2" width="120" /><br>
         <strong>Nome do Fundador 2</strong><br>
-        CTO & Co-Founder
+        CEO & Co-Founder
       </td>
        <td align="center">
-        <img src="path/to/fundador2.jpg" alt="Fundador 2" width="120" /><br>
+        <img src="app/static/images/roger.png" alt="Fundador 2" width="120" /><br>
         <strong>Nome do Fundador 2</strong><br>
-        CTO & Co-Founder
+        CFO & Co-Founder
       </td>
     </tr>
   </table>
