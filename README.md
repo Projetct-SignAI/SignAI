@@ -40,7 +40,7 @@
                   Co-Founder
              </td>
              <td align="center">
-                  <img src="app/static/images/vini.png" alt="Fundador 2" style="width:120px; height:120px; object-fit:cover;" /><br>
+                  <img src="app/static/images/vini.png" alt="Fundador 2" style="width:100px; height:120px; object-fit:cover;" /><br>
                   <strong>Vinícius Rodrigues</strong><br>
                   Co-Founder
              </td>
