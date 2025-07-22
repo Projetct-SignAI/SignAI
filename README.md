@@ -45,7 +45,7 @@
                   Co-Founder
              </td>
              <td align="center">
-                  <img src="app/static/images/roger.png" alt="Fundador 3" style="width:120px; height:120px; object-fit:cover;" /><br>
+                  <img src="app/sgtatic/images/roger.png" alt="Fundador 3" style="width:120px; height:120px; object-fit:cover;" /><br>
                   <strong>Roger Arraz</strong><br>
                   Co-Founder
              </td>
@@ -55,9 +55,15 @@
 
 ---
 
-## 📽️ Demonstração
+<div align="center">
 
-> 🔗 Vídeo será disponibilizado em breve para mostrar a aplicação em ação.
+🎬 <strong>Assista à demonstração:</strong><br>
+<a href="app/sgtatic/images/signai0video_TLXcW19c.mp4" target="_blank">
+   <img src="https://img.icons8.com/ios-filled/100/000000/play-button-circled.png" alt="Play Video" width="80" /><br>
+   <b>Clique aqui para ver o vídeo da aplicação em ação</b>
+</a>
+
+</div>
 
 ---
 
