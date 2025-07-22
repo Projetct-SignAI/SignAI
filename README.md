@@ -213,6 +213,11 @@ Acesse no navegador:
         <strong>Nome do Fundador 2</strong><br>
         CTO & Co-Founder
       </td>
+       <td align="center">
+        <img src="path/to/fundador2.jpg" alt="Fundador 2" width="120" /><br>
+        <strong>Nome do Fundador 2</strong><br>
+        CTO & Co-Founder
+      </td>
     </tr>
   </table>
 </div>
