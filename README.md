@@ -1,10 +1,10 @@
 # 🧠 SignAI – Backend com FastAPI
 
 <div align="center">
-  <img src="https://img.shields.io/badge/FastAPI-0.110.0-green?logo=fastapi" alt="FastAPI" />
-  <img src="https://img.shields.io/badge/PostgreSQL-17-blue?logo=postgresql" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/CI/CD-ready-brightgreen?logo=githubactions" alt="CI/CD" />
-  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status" />
+   <img src="https://img.shields.io/badge/FastAPI-0.110.0-green?logo=fastapi" alt="FastAPI" />
+   <img src="https://img.shields.io/badge/PostgreSQL-17-blue?logo=postgresql" alt="PostgreSQL" />
+   <img src="https://img.shields.io/badge/CI/CD-ready-brightgreen?logo=githubactions" alt="CI/CD" />
+   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status" />
 </div>
 
 ---
@@ -29,6 +29,32 @@
 
 ---
 
+## 👥 Equipe Fundadora
+
+<div align="center">
+    <table>
+         <tr>
+             <td align="center">
+                  <img src="app/static/images/eurico.png" alt="Fundador 1" style="width:120px; height:120px; object-fit:cover;" /><br>
+                  <strong>Eduardo Eurico</strong><br>
+                  Co-Founder
+             </td>
+             <td align="center">
+                  <img src="app/static/images/vini.png" alt="Fundador 2" style="width:120px; height:120px; object-fit:cover;" /><br>
+                  <strong>Vinícius Rodrigues</strong><br>
+                  Co-Founder
+             </td>
+             <td align="center">
+                  <img src="app/static/images/roger.png" alt="Fundador 3" style="width:120px; height:120px; object-fit:cover;" /><br>
+                  <strong>Roger Arraz</strong><br>
+                  Co-Founder
+             </td>
+         </tr>
+    </table>
+</div>
+
+---
+
 ## 📽️ Demonstração
 
 > 🔗 Vídeo será disponibilizado em breve para mostrar a aplicação em ação.
@@ -44,8 +70,7 @@
 5. [Executando o Servidor](#-5-executando-o-servidor)  
 6. [Problemas Comuns & Soluções](#-6-problemas-comuns--soluções)  
 7. [Roadmap & Atualizações](#-7-roadmap--atualizações)  
-8. [Equipe Fundadora](#-8-equipe-fundadora)  
-9. [Observações Finais](#-9-observações-finais)  
+8. [Observações Finais](#-8-observações-finais)  
 
 ---
 
@@ -55,7 +80,7 @@
 
 ```bash
 git clone https://<SEU_TOKEN>@github.com/Projetct-SignAI/SignAI.git
-
+```
 
 **Comando para Push:**
 
@@ -85,10 +110,10 @@ CREATE DATABASE SignAI;
 **Criar a tabela:**
 ```sql
 CREATE TABLE users (
-      id SERIAL PRIMARY KEY,
-      nome VARCHAR(100) NOT NULL,
-      email VARCHAR(100) UNIQUE NOT NULL,
-      senha TEXT NOT NULL
+         id SERIAL PRIMARY KEY,
+         nome VARCHAR(100) NOT NULL,
+         email VARCHAR(100) UNIQUE NOT NULL,
+         senha TEXT NOT NULL
 );
 ```
 
@@ -159,31 +184,31 @@ Acesse no navegador:
 ### ❗ PostgreSQL não está rodando
 
 - Verifique o status:
-   ```bash
-   pg_ctl status
-   ```
+    ```bash
+    pg_ctl status
+    ```
 - Inicie o servidor se necessário:
-   ```bash
-   pg_ctl start -D "C:\Program Files\PostgreSQL\17\data"
-   ```
+    ```bash
+    pg_ctl start -D "C:\Program Files\PostgreSQL\17\data"
+    ```
 - Confirme a string de conexão:
-   ```python
-   DATABASE_URL = "postgresql://postgres:senha@localhost:5432/SignAI"
-   ```
+    ```python
+    DATABASE_URL = "postgresql://postgres:senha@localhost:5432/SignAI"
+    ```
 
 ---
 
 ### ❗ Arquivos estáticos não carregam
 
 1. Certifique-se que está montando a pasta `static` no FastAPI:
-    ```python
-    from fastapi.staticfiles import StaticFiles
-    app.mount("/static", StaticFiles(directory="static"), name="static")
-    ```
+      ```python
+      from fastapi.staticfiles import StaticFiles
+      app.mount("/static", StaticFiles(directory="static"), name="static")
+      ```
 2. No HTML, use:
-    ```html
-    <link rel="stylesheet" href="/static/css/login.css">
-    ```
+      ```html
+      <link rel="stylesheet" href="/static/css/login.css">
+      ```
 
 ---
 
@@ -198,32 +223,7 @@ Acesse no navegador:
 
 ---
 
-## 📌 8. Equipe Fundadora
-
-<div align="center">
-  <table>
-    <tr>
-      <td align="center">
-        <img src="app/static/images/eurico.png" alt="Fundador 1" width="120" /><br>
-        <strong>Nome do Fundador 1</strong><br>
-         CTO& Co-Founder
-      </td>
-      <td align="center">
-        <img src="app/static/images/vini.png" alt="Fundador 2" width="120" /><br>
-        <strong>Nome do Fundador 2</strong><br>
-        CEO & Co-Founder
-      </td>
-       <td align="center">
-        <img src="app/static/images/roger.png" alt="Fundador 2" width="120" /><br>
-        <strong>Nome do Fundador 2</strong><br>
-        CFO & Co-Founder
-      </td>
-    </tr>
-  </table>
-</div>
-
-
-## 📌 Observações
+## 📌 8. Observações Finais
 
 - Este README será atualizado com instruções de deploy e mais detalhes técnicos ao longo do desenvolvimento.
 - Certifique-se de ter permissões adequadas para clonar e enviar alterações ao repositório.
