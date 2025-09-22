@@ -1,20 +1,94 @@
-# **SignAI - Backend FastAPI**
+# 🧠 SignAI – Backend com FastAPI
 
-Repositório do projeto **SignAI**, no qual será desenvolvido o sistema.
+<div align="center">
+   <img src="https://img.shields.io/badge/FastAPI-0.110.0-green?logo=fastapi" alt="FastAPI" />
+   <img src="https://img.shields.io/badge/PostgreSQL-17-blue?logo=postgresql" alt="PostgreSQL" />
+   <img src="https://img.shields.io/badge/CI/CD-ready-brightgreen?logo=githubactions" alt="CI/CD" />
+   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status" />
+</div>
 
-## **📌 1. Clonando o Repositório**
+---
 
-Caso não consiga dar `git clone`, tente usar seu token como senha. O Git não suporta mais senha do GitHub, apenas o token.
+## 🚀 Sobre o SignAI
 
-### **Comando para Clonar:**
+**SignAI** é uma **startup** focada em **acessibilidade** e **inclusão social**, usando **Inteligência Artificial** e **Visão Computacional** para traduzir, em tempo real, sinais da Língua Brasileira de Sinais (Libras) em **texto** e **áudio**. Nosso objetivo é:
+
+- **Democratizar** o acesso à comunicação para pessoas surdas.
+- Reduzir a **dependência** de intérpretes humanos.
+- Oferecer uma **solução escalável**, de **baixo custo** e fácil manutenção.
+- Ampliar oportunidades **educacionais**, **profissionais** e **governamentais**.
+
+> ⚠️ **Atenção:** A aplicação ainda **não está publicada online**. Este repositório refere-se à versão local em desenvolvimento.
+
+---
+
+## 🎯 Visão & Missão
+
+**Visão:** Ser a principal plataforma de tradução automática de Línguas de Sinais no Brasil até 2026.  
+**Missão:** Construir tecnologia que elimine barreiras de comunicação, promovendo empatia e inclusão por meio de inovação contínua.
+
+---
+
+## 👥 Equipe Fundadora
+
+<div align="center">
+    <table>
+         <tr>
+             <td align="center">
+                  <img src="app/static/images/eurico.png" alt="Fundador 1" style="width:120px; height:120px; object-fit:cover;" /><br>
+                  <strong>Eduardo Eurico</strong><br>
+                  Co-Founder
+             </td>
+             <td align="center">
+                  <img src="app/static/images/vini.png" alt="Fundador 2" style="width:100px; height:120px; object-fit:cover;" /><br>
+                  <strong>Vinícius Rodrigues</strong><br>
+                  Co-Founder
+             </td>
+             <td align="center">
+                  <img src="app/static/images/roger.png" alt="Fundador 3" style="width:120px; height:120px; object-fit:cover;" /><br>
+                  <strong>Roger Arraz</strong><br>
+                  Co-Founder
+             </td>
+         </tr>
+    </table>
+</div>
+
+---
+
+<div align="center">
+
+🎬 <strong>Assista à demonstração:</strong><br>
+<a href="https://youtu.be/HUchOBB0NRg" target="_blank">
+   <img src="https://img.icons8.com/ios-filled/100/000000/play-button-circled.png" alt="Play Video" width="80" /><br>
+   <b>Clique aqui para ver o vídeo da aplicação em ação</b>
+</a>
+
+</div>
+
+---
+
+## 📂 Índice
+
+1. [Clonando o repositório](#-1-clonando-o-repositório)  
+2. [Instalação das Dependências](#-2-instalação-das-dependências)  
+3. [Configuração do Banco de Dados](#-3-configuração-do-banco-de-dados-postgresql)  
+4. [Estrutura do Projeto](#-4-estrutura-do-projeto)  
+5. [Executando o Servidor](#-5-executando-o-servidor)  
+6. [Problemas Comuns & Soluções](#-6-problemas-comuns--soluções)  
+7. [Roadmap & Atualizações](#-7-roadmap--atualizações)  
+8. [Observações Finais](#-8-observações-finais)  
+
+---
+
+## 📌 1. Clonando o Repositório
+
+> 🔐 Use seu **token** caso o `git clone` solicite autenticação.
 
 ```bash
-git clone https://<SEU_TOKEN_CLASSIC_COM_OPÇÕES_HABILITADAS_DE_REPO>@github.com/Projetct-SignAI/SignAI.git
+git clone https://<SEU_TOKEN>@github.com/Projetct-SignAI/SignAI.git
 ```
 
-### **Comando para Push:**
-
-Caso não consiga dar `git push`, utilize o seguinte comando:
+**Comando para Push:**
 
 ```bash
 git push https://<SEU_TOKEN_DA_CONTA>@github.com/UsuarioGit/SignAI.git
@@ -22,158 +96,148 @@ git push https://<SEU_TOKEN_DA_CONTA>@github.com/UsuarioGit/SignAI.git
 
 ---
 
-## **📌 2. Instalação das Dependências**
+## 📌 2. Instalação das Dependências
 
-### **Instalar todas as dependências**
+Instale todos os pacotes necessários com:
 
-**Instala pelo requirements**
-
-```sh
+```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## **📌 3. Configuração do Banco de Dados (PostgreSQL)**
+## 📌 3. Configuração do Banco de Dados (PostgreSQL)
 
-### **Criar o banco de dados**
-
-Se o banco de dados ainda não existir, crie-o executando no **psql**:
-
+**Criar o banco:**
 ```sql
 CREATE DATABASE SignAI;
 ```
 
-### **Criar a tabela **``
-
+**Criar a tabela:**
 ```sql
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    senha TEXT NOT NULL
+         id SERIAL PRIMARY KEY,
+         nome VARCHAR(100) NOT NULL,
+         email VARCHAR(100) UNIQUE NOT NULL,
+         senha TEXT NOT NULL
 );
 ```
 
-### **Verificar se o PostgreSQL está rodando**
-
-```sh
+**Verificar se o PostgreSQL está rodando:**
+```bash
 pg_ctl status
 ```
 
-Caso não esteja rodando, inicie o servidor:
-
-```sh
+**Caso não esteja rodando:**
+```bash
 pg_ctl start -D "C:\Program Files\PostgreSQL\17\data"
 ```
 
-Verifique a conexão com o banco:
-
-```sh
+**Verifique a conexão:**
+```bash
 psql -U postgres -d SignAI -h localhost -p 5432
 ```
 
 ---
 
-## **📌 4. Estrutura do Projeto**
+## 📌 4. Estrutura do Projeto
 
 ```plaintext
 SignAI/
-├── src/                     
-│   ├── __init__.py
-│   ├── main.py             # Arquivo principal
+├── src/
+│   ├── main.py                # Arquivo principal da API
 │   ├── routes/
-│   │   ├── rotas.py        # Define as rotas
+│   │   └── rotas.py           # Rotas definidas
 │   ├── models/
-│   │   ├── user.py         # Define o modelo do banco
-│   ├── utils/
-│   │   ├── bancoPostgres.py # Conexão com PostgreSQL
+│   │   └── user.py            # Modelo de dados (ORM)
+│   └── utils/
+│       └── bancoPostgres.py   # Conexão com PostgreSQL
 │
-├── static/                  # Arquivos estáticos (CSS, JS, imagens)
-│   ├── css/
-│   │   └── login.css
+├── static/                    # Arquivos estáticos (CSS, JS, imagens)
+│   └── css/
+│       └── login.css
 │
-├── templates/              # Arquivos HTML (renderizados pelo FastAPI)
+├── templates/                 # Páginas HTML (renderizadas)
+│   ├── base.html
 │   ├── login.html
 │   ├── cadastro.html
-│   ├── base.html            # Template base
-│   └── home.html            # Página inicial
+│   └── home.html
 │
-├── requirements.txt        # Lista de dependências
-├── README.md               # Documentação do projeto
-└── .gitignore              # Arquivos a serem ignorados no Git
+├── requirements.txt           # Dependências do projeto
+├── .gitignore                 # Arquivos ignorados pelo Git
+└── README.md                  # Documentação
 ```
 
 ---
 
-## **📌 5. Executando o Servidor**
+## 📌 5. Executando o Servidor
 
-Para rodar a API FastAPI com Uvicorn, use:
+Rode o servidor localmente com Uvicorn:
 
-```sh
+```bash
 uvicorn src.main:app --reload
 ```
-NÃO ESQUECER DE RODAR EM APP
 
 Acesse no navegador:
 
-```
-http://127.0.0.1:8000
-```
-
-A documentação interativa da API pode ser acessada em:
-
-```
-http://127.0.0.1:8000/docs
-```
+- App: [`http://127.0.0.1:8000`](http://127.0.0.1:8000)
+- Docs interativas: [`http://127.0.0.1:8000/docs`](http://127.0.0.1:8000/docs)
 
 ---
 
-## **📌 6. Problemas Comuns e Soluções**
+## 📌 6. Problemas Comuns e Soluções
 
-### **Erro: **``
+### ❗ PostgreSQL não está rodando
 
-Solução:
-
-- Verifique se o PostgreSQL está rodando (`pg_ctl status`).
-- Confirme que a string de conexão no código está correta:
-  ```python
-  DATABASE_URL = "postgresql://postgres:senha@localhost:5432/SignAI"
-  ```
-
-### **Erro: Arquivos estáticos não carregam (**``**)**
-
-Solução:
-
-1. Certifique-se de que o FastAPI está montando a pasta `static`:
-   ```python
-   from fastapi.staticfiles import StaticFiles
-   app.mount("/static", StaticFiles(directory="static"), name="static")
-   ```
-2. No HTML, referencie os arquivos corretamente:
-   ```html
-   <link rel="stylesheet" href="/static/css/login.css">
-   ```
+- Verifique o status:
+    ```bash
+    pg_ctl status
+    ```
+- Inicie o servidor se necessário:
+    ```bash
+    pg_ctl start -D "C:\Program Files\PostgreSQL\17\data"
+    ```
+- Confirme a string de conexão:
+    ```python
+    DATABASE_URL = "postgresql://postgres:senha@localhost:5432/SignAI"
+    ```
 
 ---
 
-## **📌 7. O que foi atualizado**
+### ❗ Arquivos estáticos não carregam
 
-# SignAI - Atualização 0.4 - IA e automação 
-
-#### Token
-
+1. Certifique-se que está montando a pasta `static` no FastAPI:
+      ```python
+      from fastapi.staticfiles import StaticFiles
+      app.mount("/static", StaticFiles(directory="static"), name="static")
+      ```
+2. No HTML, use:
+      ```html
+      <link rel="stylesheet" href="/static/css/login.css">
+      ```
 
 ---
 
-## 📌 Instalação e Configuração
+## 📌 7. O que foi atualizado
 
-### 1️⃣ Atualizar Dependências
-```bash
-pip install -r requirements.txt
+### 🚀 SignAI - Versão 0.4
+
+- Implementações de IA e automações
+- Preparação para CI/CD
+- Autenticação JWT
+- Tradução de Libras via webcam com TensorFlow + OpenCV + MediaPipe
+
 ---
 
-## Observações
+## 📌 8. Observações Finais
 
-- Este README será atualizado e complementado com mais informações ao longo do desenvolvimento.
-- Certifique-se de ter as permissões adequadas para clonar e realizar push no repositório.
+- Este README será atualizado com instruções de deploy e mais detalhes técnicos ao longo do desenvolvimento.
+- Certifique-se de ter permissões adequadas para clonar e enviar alterações ao repositório.
+
+---
+
+<div align="center">
+
+Feito com ❤️ por <b>Equipe SignAI</b> — Promovendo acessibilidade com tecnologia.
+
+</div>
