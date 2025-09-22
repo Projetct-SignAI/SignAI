@@ -220,12 +220,30 @@ Acesse no navegador:
 
 ## 📌 7. O que foi atualizado
 
-### 🚀 SignAI - Versão 0.4
+### 🚀 SignAI - Versão 0.5
 
-- Implementações de IA e automações
-- Preparação para CI/CD
-- Autenticação JWT
-- Tradução de Libras via webcam com TensorFlow + OpenCV + MediaPipe
+## 🚀 O que foi atualizado
+
+- **Implementações de IA e automações**
+  - Pipeline completo de coleta → criação de dataset → treinamento → inferência.
+  - Padronização das features: **2 mãos × 21 pontos × 3 coordenadas = 126 features por frame**. //A fazer
+  - Normalização por mão (mínimo de x, y, z). Em Desenvolvimento
+  - Ordenação das mãos (esquerda → direita) para consistência.
+  - Padding automático com zeros quando apenas 1 mão é detectada.
+
+- **Preparação para CI/CD**
+  - Estrutura de diretórios organizada para versionamento.
+  - Arquivos de dataset salvos em formato **NumPy `.npz`**.
+  - Modelo de rede neural salvo em **Pickle `.pkl`**.
+
+- **Autenticação JWT**
+  - Mantida da versão anterior, já integrada no backend.
+
+- **Tradução de Libras para modelo de video via webcam com TensorFlow + OpenCV + MediaPipe**
+  - Captura de vídeo em tempo real.
+  - Extração de landmarks em 3D (x, y).
+  - Inferência de sequências com modelo baseado em LSTM/GRU.
+  - Visualização do gesto reconhecido diretamente sobre o frame da webcam.
 
 ---
 
