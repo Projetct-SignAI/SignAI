@@ -16,11 +16,28 @@
 **Demonstração oficial do SignAI:**  
 ➡️ https://youtu.be/HUchOBB0NRg
 
-No vídeo, apresentamos a proposta do **SignAI**, uma solução que une **Inteligência Artificial** e **Visão Computacional** para apoiar a **acessibilidade** na comunicação. Mostramos o conceito do projeto, o objetivo central de **reduzir barreiras entre pessoas surdas e ouvintes**, e uma visão prática de como a plataforma pretende traduzir sinais de **Libras** para **texto** (e evolução para **áudio**) em tempo real.
+No vídeo, apresentamos a proposta do **SignAI**, uma solução que une **Inteligência Artificial** e **Visão Computacional** para apoiar a **acessibilidade** na comunicação. Mostramos o conceito do projeto, o objetivo central de **reduzir barreiras entre pessoas surdas e ouvintes**, e uma visão prática de como a plataforma pretende traduzir sinais de **Libras** para **texto** (com evolução para **áudio**) em tempo real.
 
 > ⚠️ **Atenção:** A aplicação ainda **não está publicada online**. Este repositório refere-se à versão local em desenvolvimento.
+
 ---
 
+## 🎓 Contexto Acadêmico (Projeto Integrador)
+
+Este projeto foi **desenvolvido no contexto da disciplina de Projeto Integrador** do **Centro Universitário de Brasília (UniCEUB)**, como parte de uma iniciativa acadêmica voltada à **inovação**, **impacto social** e **aplicação prática** de tecnologia em um cenário real.
+
+📍 **Instituição:** UniCEUB — Brasília/DF  
+🧑‍💻 **Ambiente:** Universitário / Acadêmico  
+💡 **Foco:** Acessibilidade, inclusão e transformação social com IA
+
+<div align="center">
+
+<!-- 🔽 ESPAÇO PARA O LOGO DO UniCEUB (substitua o caminho abaixo) -->
+<img src="https://pt.wikipedia.org/wiki/Ficheiro:Marca-ceub-versao-positiva-lilas-1024x791.png" alt="Logo UniCEUB" width="180" />
+
+</div>
+
+---
 
 <div align="center">
 
