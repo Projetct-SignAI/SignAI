@@ -33,7 +33,7 @@ Este projeto foi **desenvolvido no contexto da disciplina de Projeto Integrador*
 <div align="center">
 
 <!-- 🔽 ESPAÇO PARA O LOGO DO UniCEUB (substitua o caminho abaixo) -->
-<img src="https://pt.wikipedia.org/wiki/Ficheiro:Marca-ceub-versao-positiva-lilas-1024x791.png" alt="Logo UniCEUB" width="180" />
+<img src="app/static/images/instituição%20logo.png" alt="Logo UniCEUB" width="180" />
 
 </div>
 
