@@ -24,7 +24,7 @@ No vídeo, apresentamos a proposta do **SignAI**, uma solução que une **Inteli
 
 ## 🎓 Contexto Acadêmico (Projeto Integrador)
 
-Este projeto foi **desenvolvido no contexto da disciplina de Projeto Integrador** do **Centro Universitário de Brasília (UniCEUB)**, como parte de uma iniciativa acadêmica voltada à **inovação**, **impacto social** e **aplicação prática** de tecnologia em um cenário real.
+Este projeto foi **desenvolvido no contexto da disciplina de Projeto Integrador** do **Centro Universitário de Brasília (UniCEUB)**, como parte de uma iniciativa acadêmica voltada à **inovação**, **impacto social** e **aplicação prática** de tecnologia em um cenário real. teste test tes 
 
 📍 **Instituição:** UniCEUB — Brasília/DF  
 🧑‍💻 **Ambiente:** Universitário / Acadêmico  
@@ -41,6 +41,6 @@ Este projeto foi **desenvolvido no contexto da disciplina de Projeto Integrador*
 
 <div align="center">
 
-Feito com ❤️ por <b>Equipe SignAI</b> — Promovendo acessibilidade com tecnologia.
+Feito com ❤️ por <b>Equipe SignAI</b> — Promovendo acessibilidade com tecnologia. 
 
 </div>
