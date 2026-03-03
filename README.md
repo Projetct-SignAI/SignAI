@@ -16,7 +16,7 @@
 **Demonstração oficial do SignAI:**  
 ➡️ https://youtu.be/HUchOBB0NRg
 
-No vídeo, apresentamos a proposta do **SignAI**, uma solução que une **Inteligência Artificial** e **Visão Computacional** para apoiar a **acessibilidade** na comunicação. Mostramos o conceito do projeto, o objetivo central de **reduzir barreiras entre pessoas surdas e ouvintes**, e uma visão prática de como a plataforma pretende traduzir sinais de **Libras** para **texto** (com evolução para **áudio**) em tempo real.
+No vídeo, apresentamos a proposta do **SignAI**, uma solução que une **Inteligência Artificial** e **Visão Computacional** para apoiar a **acessibilidade** na comunicação. Mostramos o conceito do projeto, o objetivo central de **reduzir barreiras entre pessoas surdas e ouvintes**, e uma visão prática de como a plataforma pretende traduzir sinais de **Libras** para **texto** (com evolução para **áudio**) em tempo real .
 
 > ⚠️ **Atenção:** A aplicação ainda **não está publicada online**. Este repositório refere-se à versão local em desenvolvimento.
 
