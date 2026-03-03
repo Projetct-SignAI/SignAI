@@ -72,14 +72,10 @@ Este projeto foi **desenvolvido no contexto da disciplina de Projeto Integrador*
 
 ## 🧩 Espaço reservado
 
-<!-- 
-✅ Use este espaço para futuras infos, prints, gif, roadmap, links, etc.
-Sugestões:
-- Roadmap
-- Prints/GIFs da aplicação
-- Diagrama da arquitetura
-- Links de apresentação/paper
--->
+### 📚 Documentos de suporte técnico
+Aqui estão os materiais de apoio (documentação e guias) usados pelo time durante o desenvolvimento do SignAI:
+
+- 📝 **Documentação técnica (OneDrive)**: [Acessar documento](https://docs.google.com/document/d/1jv0aVstuUolTL70-nHr4kDXLI2EauDfJeQ62LiKna-g/edit?usp=sharing)
 
 ---
 
